@@ -1,0 +1,74 @@
+<!-- <div >
+    <button *ngIf = "currId > 0" (click) = "previous(currId)" class = "btn btn-info">Previous</button>
+    <div>{{currQuestion.question}}</div>
+    <div>{{currId}}</div>
+    <button *ngIf = "currId < ( quiz.questions.length - 2)" (click) = "next(currId)" class = "btn btn-info"> Next</button>
+</div>
+ -->
+
+
+<!-- <nav class="navbar navbar-expand-sm navbar-dark">
+        <div>header</div>    
+    </nav>
+    
+    <div class="grid-container">
+        <div class="item">
+            <h4>{{currQuestion.question}}</h4>
+            <div class = "item1">
+                <label class="btn btn-lg  btn-block">
+                    <input type="radio" name="q_answer" value="1">{{currQuestion.option1}}
+                </label>
+                <label class = "btn btn-lg  btn-block">
+                     <input type="radio" name="q_answer" value="2">{{currQuestion.option2}}
+                </label>
+
+                <label class=" btn btn-lg  btn-block">
+                    <input type="radio" name="q_answer" value="3">{{currQuestion.option3}}
+                </label>
+
+                <label class="btn btn-lg  btn-block">
+                    <input type="radio" name="q_answer" value="4">{{currQuestion.option4}}
+                </label>
+            </div>
+            <button *ngIf = "currId > 0" (click) = "previous(currId)" class = "btn prev-color">Previous</button>
+            {{currId + 1}} / {{quizL}}
+            <button *ngIf = "currId < ( quizL - 1)" (click) = "next(currId)" class = "btn btn-info btn-end"> Next</button>
+        </div>
+        <div class="item">         
+                <button *ngFor = "let x of buttons; let i=index"class="rounded-button"(click)="getQuestion(i)">{{i + 1}}</button>
+        </div>
+    </div> -->
+<div *ngIf = "submitf == 0"class="grid-container">
+    <div class="item">
+        <h4>{{currQuestion.question}}</h4>
+        <div class="item1">
+            <label class="btn btn-lg btn-block">
+                <input type="radio" name="q_answer" value="1" (click) ="currQuestion.givenAnswer = currQuestion.option1">{{currQuestion.option1}}
+            </label>
+            <label class="btn btn-lg btn-block">
+                <input type="radio" name="q_answer" value="2" (click) ="currQuestion.givenAnswer = currQuestion.option2">{{currQuestion.option2}}
+            </label>
+            <label class="btn btn-lg btn-block">
+                <input type="radio" name="q_answer" value="3" (click) ="currQuestion.givenAnswer = currQuestion.option3">{{currQuestion.option3}}
+            </label>
+            <label class="btn btn-lg btn-block">
+                <input type="radio" name="q_answer" value="4" (click) ="currQuestion.givenAnswer = currQuestion.option4">{{currQuestion.option4}}
+            </label>
+        </div>
+        <button *ngIf="currId > 0" (click)="previous(currId)" class="btn prev-color">Previous</button>
+        {{currId + 1}} / {{quizL}}
+        <button *ngIf="currId < ( quizL - 1)" (click)="next(currId)" class="btn btn-info btn-end"> Next</button>
+    </div>
+    
+    <div class="item2 item item2-container">
+        <button *ngFor="let x of buttons; let i=index" class="button-row " 
+        (click)="getQuestion(i)">{{i+1}}</button>
+        <button  (click)="submit()" class="btn btn-info btn-sub "> Submit</button>
+    </div>
+</div>
+
+<div *ngIf = "submitf == 1"class="container">
+    <h1>
+        Yeah You scored {{result}} out of {{quizL}} points. 
+    </h1>
+</div>

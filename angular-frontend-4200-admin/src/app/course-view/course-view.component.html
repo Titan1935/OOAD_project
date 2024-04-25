@@ -1,0 +1,52 @@
+<div class="container">
+    <h3>Title</h3>
+    <h4>{{course.title}}</h4>
+    <h3>Instructor</h3>
+    <h5>{{course.instructor}}</h5>
+    <h3>About</h3>
+    <h5>{{course.courseOutcome}}</h5>
+    <h3>Course Material</h3>
+    <h5>{{course.courseMaterial}}</h5>
+
+</div>
+
+
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Difficulty</th>
+            <th>Time Limit</th>
+            <th>Reward Points</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody >
+        <tr  *ngFor="let quiz of course.quizs; let i = index;">
+        <ng-container  *ngIf="(i < (course.quizs.length - 1));">
+            <td> {{ quiz.title }} </td>
+            <td> {{ quiz.difficulty }} </td>
+            <td> {{ quiz.timeLimit }} </td>
+            <td> {{ quiz.rewardPoints }} </td>
+            <td>
+                <button (click) = "onQuizClick(i)" class = "btn btn-info"> Attempt</button>
+            </td>
+        </ng-container>
+        </tr>
+        
+    </tbody>
+</table>
+
+
+<!-- import { Quiz } from "./quiz";
+export class Course {
+    id: number;
+    title: string;
+    instructor: string;
+    courseMaterial: string;
+    courseOutcome: string;
+    image: File;
+    quizs: Quiz[] = [];
+} -->

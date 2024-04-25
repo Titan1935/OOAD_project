@@ -1,0 +1,68 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Create Course </h3>
+    <form #courseForm="ngForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" [(ngModel)]="course.id" name ="id">
+
+        <div class="form-group">
+            <label>Title --</label>
+            <input type="text" class="form-control" id="title" [(ngModel)]="course.title" name="title">
+        </div>
+
+        <div class="form-group">
+            <label>Instructor</label>
+            <input type="text" class="form-control" id="instructor" [(ngModel)]="course.instructor" name="instructor">
+        </div>
+
+        <div class="form-group">
+            <label>Course Material</label>
+            <input type="text" class="form-control" id="courseMaterial" [(ngModel)]="course.courseMaterial"
+                name="courseMaterial">
+        </div>
+
+        <div class="form-group">
+            <label>Course Outcome</label>
+            <input type="text" class="form-control" id="courseOutcome" [(ngModel)]="course.courseOutcome"
+                name="courseOutcome">
+        </div>
+
+        <div class="form-group">
+            <button class="btn btn-success" (click)="addQuiz()">Add Quiz</button>
+        </div>
+
+        <!-- <div class="form-group">
+        <label>Course Image</label>
+        <input type="file" class ="form-control" id = "image"
+             (change)="onFileSelected($event)" name = "image">
+    </div>  -->
+
+        <button class="btn btn-success" type="submit">Submit</button>
+    </form>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Difficulty</th>
+                <th>Time Limit</th>
+                <th>Reward Points</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+
+        <tbody >
+            <tr  *ngFor="let quiz of quizs; let i = index;">
+                <ng-container  *ngIf="(i < (quizs.length - 1));">
+                <td> {{ quiz.title }} </td>
+                <td> {{ quiz.difficulty }} </td>
+                <td> {{ quiz.timeLimit }}</td>
+                <td > {{ quiz.rewardPoints }} </td>
+                <td >
+                    <button (click) = "updateQuiz(i)" class = "btn btn-info"> Update</button>
+                </td>
+            </ng-container>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>

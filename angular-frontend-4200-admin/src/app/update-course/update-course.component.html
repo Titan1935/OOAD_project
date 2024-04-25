@@ -1,0 +1,32 @@
+<div class="col-md-6 offset-md-3">
+    <h3> Update Course </h3>
+    <form (ngSubmit) = "onSubmit()">
+        <!-- <input type="hidden" [(ngModel)] = "course.id"> -->
+        <div class="form-group">
+            <label>Title</label>
+            <input type="text" class ="form-control" id = "title"
+                [(ngModel)] = "course.title" name = "title">
+        </div>
+    
+        <div class="form-group">
+            <label>Instructor</label>
+            <input type="text" class ="form-control" id = "instructor"
+                [(ngModel)] = "course.instructor" name = "instructor">
+        </div>
+    
+        <div class="form-group">
+            <label>Course Material</label>
+            <input type="text" class ="form-control" id = "courseMaterial"
+                [(ngModel)] = "course.courseMaterial" name = "courseMaterial">
+        </div>
+
+        <div class="form-group">
+            <label>Course Outcome</label>
+            <input type="text" class ="form-control" id = "courseOutcome"
+                [(ngModel)] = "course.courseOutcome" name = "courseOutcome">
+        </div>
+    
+        <button class = "btn btn-danger" type ="submit">Update</button>
+    
+    </form>
+    </div> 
